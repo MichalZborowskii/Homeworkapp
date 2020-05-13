@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for schoolclass in schoolclasses %}
+    <ul>
+        <li><a href="/schoolclass/{{ schoolclass.id }}">{{ schoolclass.name }}</a></li>
+    </ul>
+
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <table border="1">
+
+        {% for subject in subjects %}
+            <tr>
+                <th><a href="/subjects/{{ subject.id }}">{{ subject.name }}</a></th>
+            </tr>{% endfor %}
+    </table>
+
+{% endblock %}

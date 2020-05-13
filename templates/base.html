@@ -1,0 +1,53 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOMEWORKAPP</title>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+<header>
+    <div class="container">
+        <a class="logo">HOMEWORKAPP</a>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/logout">Logout</a></li>
+                <li><a href="/registration">Register</a></li>
+                {% if user.is_authenticated %}
+                    <li>{{ user.username }} Logged</li>
+                {% else %}
+                    <li>Logged Out</li>
+                {% endif %}
+            </ul>
+
+        </nav>
+    </div>
+</header>
+<div class="wrapper">
+    <div class="sidebar">
+        <ul class="dupa">
+            <li><a href="/subjects"><i class="material-icons">details</i></a> SUBJECTS</li>
+            {% if user.profile.is_teacher %}
+                <li><a href="/schoolclass"><i class="material-icons">details</i></a> SCHOOLCLASS</li>
+                <li><a href="/addhomework"><i class="material-icons">details</i></a> ADDHOMEWROK</li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% block content %}
+
+{% endblock %}
+
+</body>
+
+</html>
+
+

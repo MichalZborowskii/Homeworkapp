@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>AddHomework</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.title }}
+        {{ form.content }}
+        {{ form.student }}
+        {{ form.subject }}
+        {{ form.schoolclass }}
+        {{ form.deadline }}
+        <input type="submit" value="Add">
+    </form>
+{% endblock %}
